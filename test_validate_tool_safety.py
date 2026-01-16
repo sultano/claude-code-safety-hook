@@ -54,10 +54,11 @@ TEST_CASES = [
     TestCase("pytest", True, "broad", critical=False),
     TestCase("cargo test", True, "broad", critical=False),
 
-    # Install dependencies - safe to run, but never whitelist (runs arbitrary code)
-    TestCase("npm install", True, "none"),
-    TestCase("npm install lodash", True, "none"),
-    TestCase("pip install requests", True, "none"),
+    # Install dependencies - UNSAFE (runs arbitrary install scripts)
+    TestCase("npm install", False, "none"),
+    TestCase("npm install lodash", False, "none"),
+    TestCase("pip install requests", False, "none"),
+    TestCase("brew install wget", False, "none"),
     TestCase("go mod download", True, "broad", critical=False),
 
     # Version/info commands - safe to run, prefer broad whitelist

@@ -66,6 +66,9 @@ UNSAFE_COMMANDS = {
     "kubectl run", "kubectl exec",
     # Network (data exfiltration risk)
     "curl ", "wget ", "nc ", "netcat",
+    # Package managers (run arbitrary install scripts)
+    "brew install", "brew upgrade",
+    "pip install", "npm install", "yarn add", "pnpm install", "bun install",
 }
 
 # Commands safe to run but NEVER auto-whitelist (pattern could be abused)
@@ -75,8 +78,6 @@ NEVER_WHITELIST_COMMANDS = {
     # Docker/k8s - arbitrary execution
     "docker run", "docker exec",
     "kubectl exec", "kubectl run", "kubectl delete", "kubectl apply",
-    # Package managers that run scripts
-    "pip install", "npm install", "yarn add",  # Safe to run, but whitelist allows arbitrary packages
 }
 
 # Base commands that are always safe to run AND whitelist

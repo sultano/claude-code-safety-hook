@@ -33,25 +33,14 @@ else
     echo "Settings installed to: $SETTINGS_FILE"
 fi
 
-# Check if Ollama is running
+# Check if Claude CLI is available
 echo ""
-echo "Checking Ollama..."
-if curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
-    echo "Ollama is running."
-
-    # Check if the model is available
-    if ollama list 2>/dev/null | grep -q "qwen2.5-coder:7b"; then
-        echo "Model qwen2.5-coder:7b is available."
-    else
-        echo "Model not found. Installing qwen2.5-coder:7b..."
-        echo "Run: ollama pull qwen2.5-coder:7b"
-    fi
+echo "Checking Claude CLI..."
+if command -v claude &> /dev/null; then
+    echo "Claude CLI is available."
 else
-    echo "Ollama is not running. Please start Ollama first:"
-    echo "  ollama serve"
-    echo ""
-    echo "Then pull the model:"
-    echo "  ollama pull qwen2.5-coder:7b"
+    echo "Claude CLI not found. Please install it first:"
+    echo "  npm install -g @anthropic-ai/claude-code"
 fi
 
 echo ""

@@ -16,7 +16,7 @@ claude --version
 In a Claude Code session, run:
 
 ```
-/plugin marketplace add sultano/claude-code-prompt-me-less
+/plugin marketplace add sultano/claude-code-marketplace
 /plugin install prompt-me-less@sultano-plugins
 ```
 

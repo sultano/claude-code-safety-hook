@@ -4,6 +4,5 @@
   "description": "Auto-approves safe commands, prompts for others",
   "author": {
     "name": "sultano"
-  },
-  "hooks": "./hooks/hooks.json"
+  }
 }

@@ -1,13 +1,16 @@
 {
-  "PreToolUse": [
-    {
-      "matcher": "Bash|Write|Edit|NotebookEdit",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/validate_tool_safety.py"
-        }
-      ]
-    }
-  ]
+  "description": "Auto-approves safe commands, prompts for others",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/validate_tool_safety.py"
+          }
+        ]
+      }
+    ]
+  }
 }
